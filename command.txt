@@ -1,0 +1,11 @@
+Go to https://github.com/laravel/ui for bootstrap auth
+1. composer require laravel/ui
+2. php artisan ui bootstrap --auth
+3. npm install
+4. npm run dev
+5. npm install laravel-mix-purgecss --save-dev
+6. npm install
+7. npm run watch
+
+Go to https://gist.github.com/karlhillx/55439d105879ff28d5188321583b488b for Laravel Mix 6 + Font Awesome 6
+Go to https://www.flaticon.com/ for icon
