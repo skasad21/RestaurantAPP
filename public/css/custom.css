@@ -1,0 +1,14 @@
+.mainfunction a {
+    color: #343a40;
+}
+
+.mainfunction a:hover {
+    color: #0d72d8;
+}
+
+.mainfunction img{
+    transition: all .4s ease-in-out;
+}
+.mainfunction img:hover {
+    transform: scale(1.2);
+}
