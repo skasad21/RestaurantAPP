@@ -9,3 +9,6 @@ Go to https://github.com/laravel/ui for bootstrap auth
 
 Go to https://gist.github.com/karlhillx/55439d105879ff28d5188321583b488b for Laravel Mix 6 + Font Awesome 6
 Go to https://www.flaticon.com/ for icon
+
+8. php artisan make:controller Management/CategoryController --resource
+9. php artisan make:model Category -m

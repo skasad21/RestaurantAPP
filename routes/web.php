@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Management\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,10 +27,13 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/management', function(){
     return view('management.index');
 });
+
+Route::resource('management/category', CategoryController::class);
+
+
 Route::get('/cashier', function(){
     return "This is Cashier Page !!!";
 });
 Route::get('/report', function(){
     return "This is Report Page !!!";
 });
-
