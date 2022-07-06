@@ -3,16 +3,10 @@
 @section('content')
     <div class="container bg-light">
         <div class="row justify-content-center">
-            <div class="col-md-4">
-                <div class="list-group">
-                    <a href="/management/category" class="list-group-item list-group-item-action"><i class="fas fa-align-justify"></i> Category</a>
-                    <a href="/management/menu" class="list-group-item list-group-item-action"><i class="fas fa-hamburger"></i> Menu</a>
-                    <a href="/management/table " class="list-group-item list-group-item-action"><i class="fas fa-chair"></i> Table</a>
-                    <a href="/management/user" class="list-group-item list-group-item-action"><i class="fas fa-users-cog"></i> User</a>
-                </div>
-            </div>
+            @include('management.inc.sidebar')
             <div class="col-md-8">
-
+                <h3>Welcome, {{ Auth::user()->name }}</h3>
+                <p>Use the left Panel To Add Category, Menu, Table and User.</p>
             </div>
         </div>
     </div>
