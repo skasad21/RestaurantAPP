@@ -37,7 +37,7 @@ Route::resource('management/table', TableController::class);
 
 
 Route::get('/cashier', function(){
-    return "This is Cashier Page !!!";
+    return view('cashier.index');
 });
 Route::get('/report', function(){
     return "This is Report Page !!!";

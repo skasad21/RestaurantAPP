@@ -16,3 +16,5 @@ Go to https://www.flaticon.com/ for icon
 11. php artisan make:model Menu -m
 12. php artisan make:controller Management/TableController --resource
 13. php artisan make:model Table -m
+14. php artisan make:controller Cashier/CashierController
+15. php artisan make:model Sale -m
