@@ -33,6 +33,7 @@
                             <span class="input-group-text">.00</span>
                         </div>
                     </div>
+
                     <label for="MenuImage">Image</label>
                     <div class="input-group mb-3">
                         {{-- <div class="input-group-prepend">

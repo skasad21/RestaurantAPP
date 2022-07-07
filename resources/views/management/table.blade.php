@@ -5,9 +5,9 @@
         <div class="row justify-content-center">
             @include('management.inc.sidebar')
             <div class="col-md-8">
-                <i class="fas fa-hamburger"> Menu </i>
-                <a href="/management/menu/create" class="btn btn-success btn-sm float-end"><i class="fas fa-plus"></i> Create
-                    Menu</a>
+                <i class="fas fa-chair"> Table </i>
+                <a href="/management/table/create " class="btn btn-success btn-sm float-end"><i class="fas fa-plus"></i> Create
+                    a Table</a>
                 <hr>
                 @if (Session()->has('status'))
                     <div class="alert alert-success">
@@ -20,31 +20,23 @@
                     <thead>
                         <tr class="text-center">
                             <th scope="col">ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Picture</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Category</th>
+                            <th scope="col">Table</th>
+                            <th scope="col">Status</th>
                             <th scope="col">Edit</th>
                             <th scope="col">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($menus as $menu)
+                        @foreach ($tables as $table)
                             <tr class="text-center">
-                                <td>{{ $menu->id }}</td>
-                                <td>{{ $menu->name }}</td>
-                                <td>{{ $menu->price }}</td>
+                                <td>{{ $table->id }}</td>
+                                <td>{{ $table->name }}</td>
+                                <td>{{ $table->status }}</td>
                                 <td>
-                                    <img src="{{ asset('menu_images') }}/{{ $menu->image }}" alt="{{ $menu->name }}"
-                                        width="120px" height="120px" class="img-thumbnail">
-                                </td>
-                                <td>{{ $menu->description }}</td>
-                                <td>{{ $menu->category->name }}</td>
-                                <td><a href="/management/menu/{{ $menu->id }}/edit" class="btn btn-warning">Edit</a>
+                                    <a href="/management/table/{{ $table->id }}/edit" class="btn btn-warning">Edit</a>
                                 </td>
                                 <td>
-                                    <form action="/management/menu/{{ $menu->id }}" method="post">
+                                    <form action="/management/table/{{ $table->id }}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <input type="submit" value="Delete" class="btn btn-danger">
@@ -56,7 +48,7 @@
                 </table>
 
                 <div class="d-flex justify-content-center">
-                    {{ $menus->links() }}
+                    {{ $tables->links() }}
                 </div>
 
             </div>
