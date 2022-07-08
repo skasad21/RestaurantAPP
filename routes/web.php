@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Cashier\CashierController;
 use App\Http\Controllers\Management\MenuController;
 use App\Http\Controllers\Management\TableController;
 use App\Http\Controllers\Management\CategoryController;
@@ -35,10 +36,10 @@ Route::resource('management/category', CategoryController::class);
 Route::resource('management/menu', MenuController::class);
 Route::resource('management/table', TableController::class);
 
+//routes for cashier
+Route::get('/cashier',[CashierController::class,'index']);
+Route::get('/cashier/getTable',[CashierController::class,'getTables']);
 
-Route::get('/cashier', function(){
-    return view('cashier.index');
-});
 Route::get('/report', function(){
     return "This is Report Page !!!";
 });
