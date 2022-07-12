@@ -104,7 +104,7 @@
 
             var SELECTED_TABLE_ID = "";
             var SELECTED_TABLE_NAME = "";
-
+            var SALE_ID = "";
             // Detect Button table onClick to show Table data
             $("#table-detail").on("click", ".btn-table", function() {
                 SELECTED_TABLE_ID = $(this).data("id");
@@ -179,6 +179,48 @@
                 $(".changeAmount").html('');
                 SALE_ID = $(this).data('id');
             });
+
+
+            // calcuate change
+            $("#recieved-amount").keyup(function() {
+                var totalAmount = $(".btn-payment").attr('data-totalAmount');
+                var recievedAmount = $(this).val();
+                var changeAmount = recievedAmount - totalAmount;
+                $(".changeAmount").html("Total Change: ৳" + changeAmount);
+
+                //check if cashier enter the right amount, then enable or disable save payment button
+
+                if (changeAmount >= 0) {
+                    $('.btn-save-payment').prop('disabled', false);
+                } else {
+                    $('.btn-save-payment').prop('disabled', true);
+                }
+
+            });
+
+
+            // save payment
+            $(".btn-save-payment").click(function() {
+                var recievedAmount = $("#recieved-amount").val();
+                var paymentType = $("#payment-type").val();
+                var saleId = SALE_ID;
+                $.ajax({
+                    type: "POST",
+                    data: {
+                        "_token": $('meta[name="csrf-token"]').attr('content'),
+                        "saleID": saleId,
+                        "recievedAmount": recievedAmount,
+                        "paymentType": paymentType
+
+                    },
+                    url: "/cashier/savePayment",
+                    success: function(data) {
+                        window.location.href = data;
+                    }
+                });
+            });
+
+
 
 
 

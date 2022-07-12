@@ -28,7 +28,7 @@
                             <span class="input-group-text">৳</span>
                         </div>
                         <input type="text" name="price" class="form-control"
-                            aria-label="Amount (to the nearest dollor)">
+                            aria-label="Amount (to the nearest Taka)">
                         <div class="input-group-append">
                             <span class="input-group-text">.00</span>
                         </div>
