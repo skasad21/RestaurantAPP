@@ -18,3 +18,6 @@ Go to https://www.flaticon.com/ for icon
 13. php artisan make:model Table -m
 14. php artisan make:controller Cashier/CashierController
 15. php artisan make:model Sale -m
+15. php artisan make:model SaleDetail -m
+
+

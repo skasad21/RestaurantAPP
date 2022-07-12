@@ -2,15 +2,14 @@
 
 namespace App\Models;
 
-use App\Models\SaleDetail;
+use App\Models\Sale;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Sale extends Model
+class SaleDetail extends Model
 {
     use HasFactory;
-
-    public function saleDetails(){
-        return $this->hasMany(SaleDetail::class);
+    public function sale(){
+        return $this->belongsTo(Sale::class);
     }
 }

@@ -39,6 +39,13 @@ Route::resource('management/table', TableController::class);
 //routes for cashier
 Route::get('/cashier',[CashierController::class,'index']);
 Route::get('/cashier/getTable',[CashierController::class,'getTables']);
+Route::get('/cashier/getMenuByCategory/{category_id}',[CashierController::class,'getMenuByCategory']);
+Route::post('/cashier/orderFood',[CashierController::class,'orderFood']);
+Route::get('/cashier/getSaleDetailsByTable/{table_id}',[CashierController::class,'getSaleDetailsByTable']);
+Route::post('/cashier/confirmOrderStatus',[CashierController::class,'confirmOrderStatus']);
+Route::post('/cashier/deleteSaleDetail',[CashierController::class,'deleteSaleDetail']);
+
+
 
 Route::get('/report', function(){
     return "This is Report Page !!!";
