@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Report\ReportController;
 use App\Http\Controllers\Cashier\CashierController;
 use App\Http\Controllers\Management\MenuController;
 use App\Http\Controllers\Management\TableController;
@@ -27,16 +28,17 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+//routes for management
 
 Route::get('/management', function(){
     return view('management.index');
 });
-//routes for management
 Route::resource('management/category', CategoryController::class);
 Route::resource('management/menu', MenuController::class);
 Route::resource('management/table', TableController::class);
 
 //routes for cashier
+
 Route::get('/cashier',[CashierController::class,'index']);
 Route::get('/cashier/getTable',[CashierController::class,'getTables']);
 Route::get('/cashier/getMenuByCategory/{category_id}',[CashierController::class,'getMenuByCategory']);
@@ -47,7 +49,10 @@ Route::post('/cashier/deleteSaleDetail',[CashierController::class,'deleteSaleDet
 Route::post('/cashier/savePayment',[CashierController::class,'savePayment']);
 Route::get('/cashier/showReceipt/{saleID}',[CashierController::class,'showReceipt']);
 
+//routes for report
+Route::get('/report',[ReportController::class,'index']);
+Route::get('/report/show',[ReportController::class,'show']);
 
-Route::get('/report', function(){
-    return "This is Report Page !!!";
-});
+
+// Export to excel
+Route::get('/report/show/export',[ReportController::class,'export']);
